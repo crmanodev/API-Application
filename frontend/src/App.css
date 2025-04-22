@@ -129,3 +129,15 @@ li a:hover {
   height: 20px;
 }
 
+
+.liList {
+  list-style-position: outside;
+  list-style-image: none;
+  height: auto;
+  width: 100%;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: left !important;
+  list-style-type: decimal !important;
+  background-color: #fff !important;
+}

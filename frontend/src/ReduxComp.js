@@ -1,8 +1,18 @@
-import logo from './logo.svg';
+import { useDispatch,useSelector } from 'react-redux';
+import { fetchTodos } from './redux/slice/todo';
 import './App.css';
-import {Link} from 'react-router-dom'
 
  const ReduxComp = ()=> {
+  const dispatch = useDispatch();
+
+  const getData = ()=>{
+       dispatch(fetchTodos())
+  }
+
+  const state = useSelector((state)=>state);
+  console.log('state',state);
+
+ 
   return (
     <div className="App">
        <div className='welcome'>
@@ -14,9 +24,19 @@ import {Link} from 'react-router-dom'
           reports to a server.
         </p>
     </div>
-        <button className='button'>Get API</button>
+        <button className='button' onClick={getData}>Get API</button>
         <button className='button'>Post API</button>
+        <div>
+    
+          {/* {!state.todo.isLoading && state.todo.data  ? 
+              state.todo.data.data.map((e)=>{
+          return  <ul><li className='liList'>{e.first_name}</li></ul>
+              }) : <p>Loading...</p>
+          } */}
+        </div>
     </div>
+
+
   );
 }
 
